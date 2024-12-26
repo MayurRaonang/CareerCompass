@@ -1,0 +1,51 @@
+.container{
+    display : flex;
+    gap : 50px;
+    justify-content: space-evenly;
+    width: 80vw;
+    margin-left: 10%;
+}
+
+.container2{
+    display : flex;
+    gap : 10px;
+    justify-content: space-evenly;
+    width: 80vw;
+    margin-left: 10%;
+    flex-direction: column;
+    margin-bottom: 50px;
+}   
+
+.one:hover{
+    box-shadow: 10px 10px lightblue;
+}
+
+.two:hover{
+    box-shadow: 10px 10px lightblue;
+}
+
+.three:hover{
+    box-shadow: 10px 10px lightblue;
+}
+
+.one{
+    background-color: aqua;
+    padding: 5px 5px 5px 5px;
+    border-radius: 25px;
+}
+
+.two{
+    background-color: lightgreen;
+    padding: 5px 5px 5px 5px;
+    border-radius: 25px;
+}
+
+.three{
+    background-color: yellow;
+    padding: 5px 5px 5px 5px;
+    border-radius: 25px;
+}
+
+p{
+    margin-left: 3%;
+}
