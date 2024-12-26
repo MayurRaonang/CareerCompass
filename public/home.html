@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav-bar{
+            background-color:beige;
+        }
+        .nav-bar ul{
+            overflow: auto;
+        }
+        .navitem{
+            float: left;
+            list-style: none;
+            margin: 20px 20px;
+        }
+        .navitem a:hover{
+            color: red
+        }
+
+        .navitem a{
+            text-decoration: none;
+            padding: 20px 20px;
+        }
+        .navitem a {
+            color: black;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li class="navitem"><a href="">Home</a></li>
+            <li class="navitem"><a href="">Assesment</a></li>
+            <li class="navitem"><a href="">Explore</a></li>
+            <li class="navitem"><a href="">Resources</a></li>
+            <li class="navitem"><a href="">Comunity</a></li>
+            <li class="navitem"><a href="">Profile</a></li>
+        </ul>
+    </nav>
+    <script>
+        // Select all nav items
+        const navItems = document.querySelectorAll('.navitem a');
+
+        // Add click event listener to each nav item
+        navItems.forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove 'selected' class from all items
+                navItems.forEach(nav => nav.classList.remove('selected'));
+                
+                // Add 'selected' class to the clicked item
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
