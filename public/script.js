@@ -7,4 +7,4 @@ document.addEventListener('scroll', () => {
         navbar.classList.remove('scroll');
         navbar.style.transition = '.4s ease';
     }
-})
+});
