@@ -11,19 +11,30 @@ const careerNames = [
 ];
 var n = document.querySelectorAll('.ans').length;
 var b = document.querySelectorAll('.ans');
-var cont = document.querySelectorAll('.container');
+var cont = document.querySelectorAll('.card');
 let k = 0;
-for(var i = 0; i < n; i ++){
-    b[i].addEventListener("click",function(){
+let career = '';
+for (var i = 0; i < n; i++) {
+    b[i].addEventListener("click", function() {
         const a = this.getAttribute("data-careerid");
         const x = this.getAttribute("data-career");
         console.log(`${a} - ${x}`);
+        
         passValue(a);
-        cont[k].style.display = 'none';
+
+        cont[k].classList.remove('d-block');
+        cont[k].classList.add('d-none');
         k++;
-        cont[k].style.display = 'flex';
+
+        if (k < cont.length) {
+            cont[k].classList.remove('d-none');
+            cont[k].classList.add('d-block');
+        }else {
+            findcareer();
+        }
     });
 }
+
 function passValue(key){
     switch(key){
         case 1:
@@ -49,7 +60,7 @@ function findcareer(){
     let suitedCareerIndex = -1;
 
     for (let i = 0; i < careerScores.length; i++) {
-        if (careerScores[i] > maxScore) {
+        if (careerScores[i] >= maxScore) {
             maxScore = careerScores[i];
             suitedCareerIndex = i;
         }

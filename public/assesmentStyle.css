@@ -18,12 +18,14 @@ body{
 }
 
 .card{
-    background-color: blueviolet;
+    background-image: linear-gradient(30deg,rgb(147, 235, 249),rgba(255, 172, 172, 0.886)) !important;
 }
 .card2{
-    background-color: blue;
+    background-color: rgb(50, 186, 213);
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 .hidecard{
-    display: none;
+    display: none !important;
 }
