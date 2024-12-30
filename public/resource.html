@@ -9,10 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <header style="height: 13rem; background-image: linear-gradient(45deg,rgb(34, 68, 190),rgb(25, 19, 197),rgba(213, 12, 216, 0.886), rgba(231, 33, 234, 0.758))" >
+    <!-- <header style="height: 13rem; background-image: linear-gradient(45deg,rgb(34, 68, 190),rgb(25, 19, 197),rgba(213, 12, 216, 0.886), rgba(231, 33, 234, 0.758))" >
         <h1 class="title text-center" style="padding: 3rem 0rem 0rem 0rem;color: white;"><i class="fa-regular fa-compass p-3"></i>Career Compass</h1>
         <h6 class="text-center p-3" style="color: rgba(255, 255, 255, 0.689);">Discover your perfect career path through personalized assessments and expert guidance </h6>
-    </header>
+    </header> -->
     <nav class="nav-bar">
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href=""><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
@@ -34,35 +34,51 @@
             <li class="hamburger" onclick=showSidebar()><a href="#"><svg style="color: black;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
         </ul>
     </nav> 
+
+    <h4 style="font-weight: bold; margin-left: 16%; color: blue; margin-top: 2%;">CARREER RESOURCES</h4>
     
     <div class="box">
         <div class="Mayurcard">
             <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-            <h3>How to chose the Right Carrer Path</h3>
+            <h4>How to chose the Right Carrer Path</h4>
             <p>A comprehensive guide to making informed career decisions</p>
-            <a href="#">Acess Resource ></a>
+            <a href="#" class="anr">Access Resource ></a>
         </div>
         <div class="Mayurcard">
             <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h480q33 0 56.5 23.5T720-720v180l160-160v440L720-420v180q0 33-23.5 56.5T640-160H160Zm0-80h480v-480H160v480Zm0 0v-480 480Z"/></svg>
-            <h3>Career Development Fundamentals</h3>
-            <p>Learn the basics of career planning and development</p>
-            <a href="#">Acess Resource ></a>
+            <h4>Career Development Fundamentals</h4>
+            <p>Learn the basics of career planning and development. Improve your skills</p>
+            <a href="#" class="anr">Access Resource ></a>
         </div>
-        <div class="Mayurcard">
+        <div class="Mayurcard"">
             <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-640v560h560v-560h-80v280l-100-60-100 60v-280H200Zm0 560v-560 560Z"/></svg>
-            <h3>Industry Expert Interviews</h3>
-            <p>Insights from professionals across different fields</p>
-            <a href="#">Acess Resource ></a>
+            <h4>Industry Expert Interviews</h4>
+            <p>Insights from professionals across different fields.Learn from the best</p>
+            <a href="#" class="anr">Access Resource ></a>
         </div>
         <div class="Mayurcard">
             <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg>
-            <h3>Job Market Trends</h3>
-            <p>Stay updated with the latest industry trends</p>
-            <a href="#">Acess Resource ></a>
+            <h4>Job Market Trends</h4>
+            <p>Stay updated with the latest industry trends. Upgrade your personality</p>
+            <a href="#" class="anr">Access Resource ></a>
         </div>
     </div>
 
-    <footer class="row" style="background-color: rgba(2, 15, 54, 0.845); color: white;">
+    <h4 style="font-weight: bold; margin-left: 16%; color: blue;">FEATURED CONTENT</h4>
+
+    <div class="cont" style="margin-left: 16%;">
+        <div class="car">
+            <h5 style="font-weight: bold;">2024 Carrer Trends and Opportunities</h5>
+        </div>
+        <div class="car">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia sungami lear fulla fuga consequatur ducimus sequi cum expedita. </p>
+        </div>
+        <div class="car">
+            <button class="bt1">Download Report</button>
+        </div>
+    </div>
+
+    <!-- <footer class="row" style="background-color: rgba(2, 15, 54, 0.845); color: white;">
         <div class="col-4 p-5">
             <h4>CareerCompass</h4>
             <p >Guiding you towards nothing this is just some blah bleh bleh asdfasdf 
@@ -81,7 +97,7 @@
             <h4 >Connect with us</h4>
             <h4><i class="fa-brands fa-x-twitter" style="margin-left: 10px;"></i>  <i class="fa-brands fa-linkedin" style="margin-left: 10px;"></i>  <i class="fa-brands fa-facebook" style="margin-left: 10px;"></i></h4>
         </div>
-    </footer>
+    </footer> -->
     <script>
         function showSidebar(){
             const sidebar = document.querySelector('.sidebar');
