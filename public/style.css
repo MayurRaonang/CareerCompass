@@ -60,43 +60,6 @@ header svg{
     align-items: center;
     justify-content: center;
 }   
-
-.tad:hover{
-    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
-}
-
-.container{
-    display : flex;
-    gap : 50px;
-    justify-content: center;
-    align-items: start;
-    margin-bottom: 150px;
-    padding-right: 15%;
-    padding-left: 15%;
-}
-
-.tad{
-    width: 226px;
-    height: 140px;
-    background-color: rgb(209, 226, 240);
-    border-radius: 25px;
-    color: rgba(2, 15, 54, 0.845);
-    box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: start;
-    padding: 20px;
-}
-
-.tad p{
-    margin-top: 15px;
-}
-
-.tad h5{
-    align-self: start;
-    font-size: 20px;
-}
 /* Sumit css end */
 
 /* Mayur css start */
@@ -201,4 +164,47 @@ footer{
 }
 .foo svg{
     padding-right: 5%;
+}
+
+.maincont{
+    display : flex;
+    gap : 1%;
+    justify-content: centre;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 3%;
+}
+
+.subcont{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height : 550px;
+    width : 25%;
+    background-color: #eef9ff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px rgb(139, 191, 187);
+    position: relative;
+}
+
+.subcont:hover{
+    background-color: #0e213f;
+    color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.subcont img{
+    height : 13rem;
+    width: 100%;
+}
+
+.subcont h4{
+    margin-left: 3%;
+    /* color: #061429; */
+    font-weight: bold;
+}
+
+.subcont p{
+    margin-left: 3%;
 }
