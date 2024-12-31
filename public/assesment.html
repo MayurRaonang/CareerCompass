@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assesment</title>
-    <link rel="stylesheet" href="assesmentStyle.css">
+    <link rel="stylesheet" href="assesmentStyle.css"/>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
+  </head>
+  <body>
     <header style="height: 15rem; background-image: linear-gradient(135deg,rgb(15, 84, 202),rgba(106, 13, 187, 0.758));width: 100%" >
         <div>
             <h1 style="font-size:40px"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#f0f0f0" viewBox="0 0 16 16">
@@ -23,7 +22,7 @@
             <li onclick=hideSidebar()><a href=""><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
             <li><a href="/public/home.html">Home</a></li>
             <li><a href="/public/assesment.html">Assesment</a></li>
-            <li><a href="">Explore</a></li>
+            <li><a href="#">Explore</a></li>
             <li><a href="/public/resource.html">Resources</a></li>
             <li><a href="">Comunity</a></li>
             <li><a href="">Profile</a></li>
@@ -35,223 +34,280 @@
             <li class="hide"><a href="#">Explore</a></li>
             <li class="hide"><a href="/public/resource.html">Resources</a></li>
             <li class="hide"><a href="#">Comunity</a></li>
-            <li class="hide"><a href="#">Profile</a></li>
+            <li class="hide profile"><a href="#">Profile</a></li>
             <li class="hamburger" onclick=showSidebar()><a href="#"><svg style="color: black;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
         </ul>
     </nav>
-<div class="container vh-100 d-flex align-items-center justify-content-center">
-    <!-- 1st question -->
-    <div class="card text-center">
-        <div class="card-body">
-            <h4 class="card-title">What kind of problems do you enjoy solving?</h4>
+    
+    <div class="questions">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q1" data-careerid="1" data-career="engineering">Technical and logical problems</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q2" data-careerid="2" data-career="medicine">Health-related issues</h3></div>
-            <div class="col-1"></div>
+        <!-- 1st question -->
+      <div class="questionbox">
+        <div class="que">
+          <h2>What kind of problems do you enjoy solving?</p>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="1" data-career="engineering">
+              Technical and logical problems
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="2" data-career="medicine">
+              Health-related issues
+            </h3>
+          </div>
+      </div>
+      <!-- 2nd question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What is your preferred way of working?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="3" data-career="arts">
+              Creative and flexible
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="4" data-career="business">
+              Structured and goal-oriented
+            </h3>
+          </div>
+      </div>
+      <!-- 3rd question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What motivates you the most?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="5" data-career="law">
+              Fighting for justice
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="6" data-career="research">
+              Finding new discoveries
+            </h3>
+          </div>
+      </div>
+      <!-- 4th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What kind of leadership do you aspire to?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="7" data-career="education">
+              Mentoring and teaching others
+            </h3>
+          </div>
+          <div class="options">
+            <h3
+              class="ans"
+              id="q2"
+              data-careerid="8"
+              data-career="entrepreneurship"
+            >
+              Building and leading a team
+            </h3>
+          </div>
+      </div>
+      <!-- 5th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>How do you measure success?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="2" data-career="medicine">
+              Improving lives
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="4" data-career="business">
+              Achieving financial stability
+            </h3>
+          </div>
+      </div>
+      <!-- 6th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What type of work environment do you prefer?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="3" data-career="arts">
+              Relaxed and open-minded
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="1" data-career="engineering">
+              Structured and systematic
+            </h3>
+          </div>
+      </div>
+      <!-- 7th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What drives you to do your best?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="5" data-career="law">
+              Solving societal issues
+            </h3>
+          </div>
+          <div class="options">
+            <h3
+              class="ans"
+              id="q2"
+              data-careerid="8"
+              data-career="entrepreneurship"
+            >
+              Creating something new
+            </h3>
+          </div>
+      </div>
+      <!-- 8th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>How do you approach challenges?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="6" data-career="research">
+              With curiosity and analysis
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="7" data-career="education">
+              By teaching others to overcome them
+            </h3>
+          </div>
+      </div>
+      <!-- 9th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>Which activity appeals to you more?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="4" data-career="business">
+              Negotiating deals
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="2" data-career="medicine">
+              Caring for patients
+            </h3>
+          </div>
+      </div>
+      <!-- 10th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What kind of impact do you want to make?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="7" data-career="education">
+              Inspiring future generations
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="1" data-career="engineering">
+              Innovating useful solutions
+            </h3>
+          </div>
+        
+      </div>
+      <!-- 11th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>How do you prefer to express yourself?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="3" data-career="arts">
+              Through creativity and art
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="5" data-career="law">
+              Through written and spoken arguments
+            </h3>
+          </div>
+        
+      </div>
+      <!-- 12th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What do you value most in a career?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="6" data-career="research">
+              Pursuing knowledge
+            </h3>
+          </div>
+          <div class="options">
+            <h3
+              class="ans"
+              id="q2"
+              data-careerid="8"
+              data-career="entrepreneurship"
+            >
+              Achieving independence
+            </h3>
+          </div>
+        
+      </div>
+      <!-- 13th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What skill do you excel in?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="4" data-career="business">
+              Leadership and management
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="2" data-career="medicine">
+              Empathy and care
+            </h3>
+          </div>
+        
+      </div>
+      <!-- 14th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What kind of knowledge excites you?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="1" data-career="engineering">
+              Scientific and technological
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="7" data-career="education">
+              Educational and historical
+            </h3>
+          </div>
+        
+      </div>
+      <!-- 15th question -->
+      <div class="questionbox hidecard">
+        <div class="que">
+          <h2>What type of projects do you enjoy?</h2>
+        </div>
+          <div class="options">
+            <h3 class="ans" id="q1" data-careerid="3" data-career="arts">
+              Creative projects
+            </h3>
+          </div>
+          <div class="options">
+            <h3 class="ans" id="q2" data-careerid="5" data-career="law">
+              Legal cases
+            </h3>
+          </div>
+      </div>
+      <div id="complete_button" class="hidecard">
+        <p style="text-align: center;">yeah you completed our assesment click on complete to check result</p>
+        <a href="#"><button>complete</button></a>
         </div>
     </div>
-
-    <!-- 2nd question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What is your preferred way of working?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q3" data-careerid="3" data-career="arts">Creative and flexible</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q4" data-careerid="4" data-career="business">Structured and goal-oriented</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 3rd question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What motivates you the most?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q5" data-careerid="5" data-career="law">Fighting for justice</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q6" data-careerid="6" data-career="research">Finding new discoveries</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 4th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What kind of leadership do you aspire to?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q7" data-careerid="7" data-career="education">Mentoring and teaching others</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q8" data-careerid="8" data-career="entrepreneurship">Building and leading a team</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 5th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">How do you measure success?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q9" data-careerid="2" data-career="medicine">Improving lives</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q10" data-careerid="4" data-career="business">Achieving financial stability</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 6th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What type of work environment do you prefer?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q11" data-careerid="3" data-career="arts">Relaxed and open-minded</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q12" data-careerid="1" data-career="engineering">Structured and systematic</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 7th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What drives you to do your best?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q13" data-careerid="5" data-career="law">Solving societal issues</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q14" data-careerid="8" data-career="entrepreneurship">Creating something new</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 8th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">How do you approach challenges?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q15" data-careerid="6" data-career="research">With curiosity and analysis</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q16" data-careerid="7" data-career="education">By teaching others to overcome them</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 9th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">Which activity appeals to you more?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q17" data-careerid="4" data-career="business">Negotiating deals</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q18" data-careerid="2" data-career="medicine">Caring for patients</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 10th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What kind of impact do you want to make?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q1" data-careerid="7" data-career="education">Inspiring future generations</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q2" data-careerid="1" data-career="engineering">Innovating useful solutions</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 11th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">How do you prefer to express yourself?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q1" data-careerid="3" data-career="arts">Through creativity and art</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q2" data-careerid="5" data-career="law">Through written and spoken arguments</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-   <!-- 12th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What do you value most in a career?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q25" data-careerid="6" data-career="research">Pursuing knowledge</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q26" data-careerid="8" data-career="entrepreneurship">Achieving independence</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-
-    <!-- 13th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What skill do you excel in?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q19" data-careerid="4" data-career="business">Leadership and management</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q20" data-careerid="2" data-career="medicine">Empathy and care</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 14th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What kind of knowledge excites you?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q21" data-careerid="1" data-career="engineering">Scientific and technological</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q22" data-careerid="7" data-career="education">Educational and historical</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <!-- 15th question -->
-    <div class="card text-center d-none">
-        <div class="card-body">
-            <h4 class="card-title">What type of projects do you enjoy?</h4>
-        </div>
-        <div class="row p-3">
-            <div class="col-1"></div>
-            <div class="btn btn-outline-primary col-4"><h3 class="ans" id="q23" data-careerid="3" data-career="arts">Creative projects</h3></div>
-            <div class="col-2"></div>
-            <div class="btn btn-outline-danger col-4"><h3 class="ans" id="q24" data-careerid="5" data-career="law">Legal cases</h3></div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-</div>
-    <div class="container d-none"><button>complete</button></div>
     <footer>
         <div class="foo">
             <div >
@@ -267,7 +323,7 @@
                 <p>No privacy Policy</p>
             </div>
             <div>
-                <h3 >Connect with us</h4>
+                <h3>Connect with us</h4>
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
                     <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
                   </svg>
@@ -281,6 +337,7 @@
             </div>
         </div>
     </footer>
+    
     <script>
         function showSidebar(){
             const sidebar = document.querySelector('.sidebar');
@@ -291,7 +348,6 @@
             sidebar.style.display = 'none';
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./AssesScript.js"></script>
-</body>
+    <script src="/public/AssesScript.js"></script>
+  </body>
 </html>

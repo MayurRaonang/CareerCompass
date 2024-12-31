@@ -11,30 +11,29 @@ const careerNames = [
 ];
 var n = document.querySelectorAll('.ans').length;
 var b = document.querySelectorAll('.ans');
-var cont = document.querySelectorAll('.card');
+var cont = document.querySelectorAll('.questionbox');
+const progressBar = document.getElementById('progress-bar');
 let k = 0;
-let career = '';
-for (var i = 0; i < n; i++) {
-    b[i].addEventListener("click", function() {
+for(let i = 0; i < n; i ++){
+    b[i].addEventListener("click",function(){
         const a = this.getAttribute("data-careerid");
         const x = this.getAttribute("data-career");
         console.log(`${a} - ${x}`);
-        
         passValue(a);
-
-        cont[k].classList.remove('d-block');
-        cont[k].classList.add('d-none');
+        cont[k].style.display = 'none';
         k++;
-
-        if (k < cont.length) {
-            cont[k].classList.remove('d-none');
-            cont[k].classList.add('d-block');
-        }else {
-            findcareer();
+        console.log(`${k}`);
+        if(k == 15){
+            document.getElementById("complete_button").classList.remove("hidecard");
+            document.getElementById("complete_button").classList.add("completebutton");
         }
+        else{
+            cont[k].style.display = 'grid';
+        }
+        const progress = ((k ) / cont.length) * 100;
+  progressBar.style.width = `${progress}%`;
     });
 }
-
 function passValue(key){
     switch(key){
         case 1:
@@ -58,7 +57,6 @@ function passValue(key){
 function findcareer(){
     let maxScore = -Infinity; // Initialize with the smallest possible number
     let suitedCareerIndex = -1;
-
     for (let i = 0; i < careerScores.length; i++) {
         if (careerScores[i] > maxScore) {
             maxScore = careerScores[i];

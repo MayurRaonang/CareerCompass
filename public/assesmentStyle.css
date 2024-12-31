@@ -2,30 +2,94 @@
     margin: 0;
     padding: 0;
 }
+
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.container2{
-    display: flex;
-    flex-direction: row;
+.questionbox{
+    height: 100px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 25px;
     gap: 20px;
 }
 
-.card{
-    background-image: linear-gradient(30deg,rgb(147, 235, 249),rgba(255, 172, 172, 0.886)) !important;
+.questions{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.card2{
-    background-color: rgb(50, 186, 213);
-    border: 2px solid black;
-    cursor: pointer;
+
+.que{
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: rgb(194, 217, 214);
+}
+
+.options{
+    border-radius: 25px;
+  
+    height: 50px;
+    background-color: rgb(134, 165, 215);
+}
+
+.options h3{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .hidecard{
-    display: none !important;
+    display: none;
 }
+
+.questionbox .que{
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+}
+
+.completebutton{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    gap: 20px;
+}
+
+#complete_button button{
+    height: 70px;
+    width: 800px;
+    font-size: xx-large;
+    background-color: rgb(195 208 219);
+    border-radius: 50px;
+}
+
+.progress-container {
+    width: 800px;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #48e7c2;
+    transition: width 0.3s ease-in-out;
+  }
+  
