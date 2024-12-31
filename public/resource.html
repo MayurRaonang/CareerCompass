@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resource</title>
     <link rel="stylesheet" href="resource.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <header style="height: 13rem; background-image: linear-gradient(45deg,rgb(34, 68, 190),rgb(25, 19, 197),rgba(213, 12, 216, 0.886), rgba(231, 33, 234, 0.758))" >
-        <h1 class="title text-center" style="padding: 3rem 0rem 0rem 0rem;color: white;"><i class="fa-regular fa-compass p-3"></i>Career Compass</h1>
-        <h6 class="text-center p-3" style="color: rgba(255, 255, 255, 0.689);">Discover your perfect career path through personalized assessments and expert guidance </h6>
-    </header> -->
+    <header style="height: 15rem; background-image: linear-gradient(135deg,rgb(15, 84, 202),rgba(106, 13, 187, 0.758));width: 100%" >
+        <div>
+            <h1 style="font-size:40px"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#f0f0f0" class="bi bi-compass" viewBox="0 0 16 16">
+                <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/>
+                <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+            </svg>Career Compass</h1>
+            <p style="margin-top: 1%; font-size: larger;" class="text-center p-3">Discover your perfect career path through personalized assessments and expert guidance </p>
+        </div>
+    </header>
     <nav class="nav-bar">
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href=""><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
             <li><a href="/public/home.html">Home</a></li>
-            <li><a href="">Assesment</a></li>
+            <li><a href="/public/assesment.html">Assesment</a></li>
             <li><a href="">Explore</a></li>
             <li><a href="/public/resource.html">Resources</a></li>
             <li><a href="">Comunity</a></li>
@@ -26,7 +30,7 @@
         <ul>
             <li id="logo"><a href="">Carrer Compass</a></li>
             <li class="hide"><a href="/public/home.html">Home</a></li>
-            <li class="hide"><a href="#">Assesment</a></li>
+            <li class="hide"><a href="/public/assesment.html">Assesment</a></li>
             <li class="hide"><a href="#">Explore</a></li>
             <li class="hide"><a href="/public/resource.html">Resources</a></li>
             <li class="hide"><a href="#">Comunity</a></li>
@@ -35,36 +39,36 @@
         </ul>
     </nav> 
 
-    <h4 style="font-weight: bold; margin-left: 16%; color: blue; margin-top: 2%;">CARREER RESOURCES</h4>
+    <h4 style="font-weight: bold; margin-left: 16%; color: black; margin-top: 2%;">CARREER RESOURCES</h4>
     
     <div class="box">
         <div class="Mayurcard">
-            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="rgb(16, 86, 178)"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
             <h4>How to chose the Right Carrer Path</h4>
             <p>A comprehensive guide to making informed career decisions</p>
             <a href="#" class="anr">Access Resource ></a>
         </div>
         <div class="Mayurcard">
-            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h480q33 0 56.5 23.5T720-720v180l160-160v440L720-420v180q0 33-23.5 56.5T640-160H160Zm0-80h480v-480H160v480Zm0 0v-480 480Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="rgb(16, 86, 178)"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h480q33 0 56.5 23.5T720-720v180l160-160v440L720-420v180q0 33-23.5 56.5T640-160H160Zm0-80h480v-480H160v480Zm0 0v-480 480Z"/></svg>
             <h4>Career Development Fundamentals</h4>
             <p>Learn the basics of career planning and development. Improve your skills</p>
             <a href="#" class="anr">Access Resource ></a>
         </div>
-        <div class="Mayurcard"">
-            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-640v560h560v-560h-80v280l-100-60-100 60v-280H200Zm0 560v-560 560Z"/></svg>
+        <div class="Mayurcard">
+            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="rgb(16, 86, 178)"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-640v560h560v-560h-80v280l-100-60-100 60v-280H200Zm0 560v-560 560Z"/></svg>
             <h4>Industry Expert Interviews</h4>
             <p>Insights from professionals across different fields.Learn from the best</p>
             <a href="#" class="anr">Access Resource ></a>
         </div>
         <div class="Mayurcard">
-            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="#000000"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="46px" viewBox="0 -960 960 960" width="46px" fill="rgb(16, 86, 178)"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg>
             <h4>Job Market Trends</h4>
             <p>Stay updated with the latest industry trends. Upgrade your personality</p>
             <a href="#" class="anr">Access Resource ></a>
         </div>
     </div>
 
-    <h4 style="font-weight: bold; margin-left: 16%; color: blue;">FEATURED CONTENT</h4>
+    <h4 style="font-weight: bold; margin-left: 16%; color: black;">FEATURED CONTENT</h4>
 
     <div class="cont" style="margin-left: 16%;">
         <div class="car">
@@ -77,27 +81,35 @@
             <button class="bt1">Download Report</button>
         </div>
     </div>
-
-    <!-- <footer class="row" style="background-color: rgba(2, 15, 54, 0.845); color: white;">
-        <div class="col-4 p-5">
-            <h4>CareerCompass</h4>
-            <p >Guiding you towards nothing this is just some blah bleh bleh asdfasdf 
-                sdfasdfsd sd fasdf asd fasd 
-            </p>
+    <footer>
+        <div class="foo">
+            <div >
+                <h3>CareerCompass</h4>
+                <p>Guiding you towards nothing this is just some blah bleh bleh asdfasdf 
+                    sdfasdfsd sd fasdf asd fasd 
+                </p>
+            </div>
+            <div >
+                <h3>Quick Links</h4>
+                <p>About us</p>
+                <p>Contact us</p>
+                <p>No privacy Policy</p>
+            </div>
+            <div>
+                <h3 >Connect with us</h4>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                  </svg>
+                </p>
+            </div>
         </div>
-        <div class="col-1"></div>
-        <div class="col-3 p-5">
-            <h4>Quick Links</h4>
-            <p>About us</p>
-            <p>Contact us</p>
-            <p>No privacy Policy</p>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-3 p-5">
-            <h4 >Connect with us</h4>
-            <h4><i class="fa-brands fa-x-twitter" style="margin-left: 10px;"></i>  <i class="fa-brands fa-linkedin" style="margin-left: 10px;"></i>  <i class="fa-brands fa-facebook" style="margin-left: 10px;"></i></h4>
-        </div>
-    </footer> -->
+    </footer>
     <script>
         function showSidebar(){
             const sidebar = document.querySelector('.sidebar');
@@ -108,6 +120,5 @@
             sidebar.style.display = 'none';
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

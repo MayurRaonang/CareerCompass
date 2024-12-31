@@ -29,14 +29,6 @@ header svg{
 }
 
 /* Sumit css start */
-.container{
-    display : flex;
-    gap : 50px;
-    justify-content: space-evenly;
-    width: 80vw;
-    margin-left: 10%;
-}
-
 .three3{
     width: 150px;
     height: 40px;
@@ -47,8 +39,12 @@ header svg{
     height: 100%;
     border-radius: 25px;
     color: #f0f0f0;
-    background-color: rgb(31, 44, 110);
+    background-color: rgb(16, 86, 178);
 
+}
+
+.three3 button:hover{
+    background-color: rgba(2, 15, 54, 0.845);
 }
 
 .two2{
@@ -69,26 +65,37 @@ header svg{
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
 }
 
+.container{
+    display : flex;
+    gap : 50px;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 150px;
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
 .tad{
-    background-color: rgba(223, 222, 228, 0.986);
-    padding: 5px 5px 5px 5px;
+    width: 226px;
+    height: 140px;
+    background-color: rgb(209, 226, 240);
     border-radius: 25px;
     color: rgba(2, 15, 54, 0.845);
-    margin-bottom: 50px;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: start;
-    justify-content: center;
+    padding: 20px;
 }
 
 .tad p{
-    margin: 3%;
+    margin-top: 15px;
 }
 
-.tad h4{
-    font-size: x-large;
+.tad h5{
+    align-self: start;
+    font-size: 20px;
 }
 /* Sumit css end */
 
@@ -169,3 +176,29 @@ nav a:hover{
 }
 
 /* Mayur css ends here */
+footer{
+    background-color: rgba(2, 15, 54, 0.845); 
+    color: white;
+    height: 15rem;
+    width: 100%;
+}
+.foo{
+    display: flex;
+    gap: 50px;
+}
+.foo div{
+    margin-top: 3%;
+    
+    height: 100%;
+    width: 35%;
+    margin-left: 2%;
+}
+.foo div h3{
+    margin-bottom: 5%;
+}
+.foo div p{
+    margin-bottom: 2%;
+}
+.foo svg{
+    padding-right: 5%;
+}

@@ -5,9 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assesment</title>
     <link rel="stylesheet" href="assesmentStyle.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+    <header style="height: 15rem; background-image: linear-gradient(135deg,rgb(15, 84, 202),rgba(106, 13, 187, 0.758));width: 100%" >
+        <div>
+            <h1 style="font-size:40px"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#f0f0f0" viewBox="0 0 16 16">
+                <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/>
+                <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+            </svg>Career Compass</h1>
+            <p style="margin-top: 1%; font-size: larger;">Discover your perfect career path through personalized assessments and expert guidance </p>
+        </div>
+    </header>
+    <nav class="nav-bar">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href=""><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="/public/home.html">Home</a></li>
+            <li><a href="/public/assesment.html">Assesment</a></li>
+            <li><a href="">Explore</a></li>
+            <li><a href="/public/resource.html">Resources</a></li>
+            <li><a href="">Comunity</a></li>
+            <li><a href="">Profile</a></li>
+        </ul>
+        <ul>
+            <li id="logo"><a href="">Carrer Compass</a></li>
+            <li class="hide"><a href="/public/home.html">Home</a></li>
+            <li class="hide"><a href="/public/assesment.html">Assesment</a></li>
+            <li class="hide"><a href="#">Explore</a></li>
+            <li class="hide"><a href="/public/resource.html">Resources</a></li>
+            <li class="hide"><a href="#">Comunity</a></li>
+            <li class="hide"><a href="#">Profile</a></li>
+            <li class="hamburger" onclick=showSidebar()><a href="#"><svg style="color: black;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
 <div class="container vh-100 d-flex align-items-center justify-content-center">
     <!-- 1st question -->
     <div class="card text-center">
@@ -221,6 +252,45 @@
     </div>
 </div>
     <div class="container d-none"><button>complete</button></div>
+    <footer>
+        <div class="foo">
+            <div >
+                <h3>CareerCompass</h4>
+                <p>Guiding you towards nothing this is just some blah bleh bleh asdfasdf 
+                    sdfasdfsd sd fasdf asd fasd 
+                </p>
+            </div>
+            <div >
+                <h3>Quick Links</h4>
+                <p>About us</p>
+                <p>Contact us</p>
+                <p>No privacy Policy</p>
+            </div>
+            <div>
+                <h3 >Connect with us</h4>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                  </svg>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function showSidebar(){
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+        function hideSidebar(){
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./AssesScript.js"></script>
 </body>

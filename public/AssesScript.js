@@ -60,7 +60,7 @@ function findcareer(){
     let suitedCareerIndex = -1;
 
     for (let i = 0; i < careerScores.length; i++) {
-        if (careerScores[i] >= maxScore) {
+        if (careerScores[i] > maxScore) {
             maxScore = careerScores[i];
             suitedCareerIndex = i;
         }

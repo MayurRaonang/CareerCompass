@@ -104,7 +104,7 @@ nav a:hover{
     margin-left: 20px;
     grid-row-start: 1;
     grid-row-end: 4;
-    background-color: aqua;
+    background-color: rgb(209, 226, 240);
     border-radius: 10px;
     padding: 5% 5%;
     height: 30%;
@@ -147,7 +147,7 @@ nav a:hover{
 }
 
 .bt1{
-    background-color: rgb(20, 20, 174);
+    background-color: rgb(16, 86, 178);
     border-radius: 10px;
     color: azure;
     width:20%;
@@ -156,9 +156,10 @@ nav a:hover{
 }
 
 .bt1:hover{
-    background-color: blue;
+    background-color: rgb(14, 52, 102);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
 }
 
 .anr:hover{
-    color: blue;
+    color: rgb(16, 86, 178);
 }
