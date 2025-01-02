@@ -177,7 +177,7 @@ footer{
 
 .maincont{
     display : flex;
-    gap : 1%;
+    gap : 2%;
     justify-content: centre;
     padding-left: 5%;
     padding-right: 5%;
@@ -194,7 +194,6 @@ footer{
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 5px 5px 5px rgb(139, 191, 187);
-    position: relative;
 }
 
 .subcont:hover{
@@ -216,4 +215,56 @@ footer{
 
 .subcont p{
     margin-left: 3%;
+}
+
+.contcard{
+    display: flex;
+    gap: 10px;
+    background-color:#cdeaf8;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.contcard img{
+    margin : 7% 7% 7% 7%;
+    height: 280px;
+    width: 280px;
+    border-radius: 50%;
+    box-shadow: 8px 8px 8px rgb(139, 191, 187);
+}
+
+.cardcontent{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.c2 h3{
+    margin-left: 5%;
+    text-decoration: underline;
+}
+
+.c2 p{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.bt1{
+    background-color: rgb(16, 86, 178);
+    border-radius: 10px;
+    color: azure;
+    width:20%;
+    height : 14%;
+    padding : 1% 1%;
+    margin-left: 4%;
+}
+
+.bt1:hover{
+    background-color: rgb(14, 52, 102);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+}
+
+.carousel-inner{
+    border-radius: 25px;
+    box-shadow: 8px 8px 8px rgb(139, 191, 187);
 }

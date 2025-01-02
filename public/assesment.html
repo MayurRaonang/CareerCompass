@@ -309,6 +309,51 @@
         <a href="#"><button id="he">complete</button></a>
       </div>
     </div>
+
+    <div class="faq-cont">
+      <h2 class="faq-title">FAQ</h2>
+      <div class="faq-item">
+        <button onclick=showans1() class="faq-que">
+          Why is CareerFitter better than other career assessments, aptitude tests, and career quizzes? 
+          <span class="faq-icon" id="icon1">+</span>
+        </button>
+        <div class="faq-ans hide-faq" id="ans1">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque harum facere deserunt itaque? Expedita sint labore eaque iusto eveniet pariatur quos, accusantium est deserunt, minima exercitationem doloribus repellendus maxime in.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos obcaecati suscipit quidem error autem velit doloribus! Mollitia, dolor laborum, reiciendis fugit accusantium eius voluptatem aspernatur excepturi id porro minus est.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button  onclick=showans2() class="faq-que">
+          Why is CareerFitter better than other career assessments, aptitude tests, and career quizzes? 
+          <span class="faq-icon" id="icon2">+</span>
+        </button>
+        <div class="faq-ans hide-faq" id="ans2">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque harum facere deserunt itaque? Expedita sint labore eaque iusto eveniet pariatur quos, accusantium est deserunt, minima exercitationem doloribus repellendus maxime in.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos obcaecati suscipit quidem error autem velit doloribus! Mollitia, dolor laborum, reiciendis fugit accusantium eius voluptatem aspernatur excepturi id porro minus est.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button onclick=showans3() class="faq-que">
+          Why is CareerFitter better than other career assessments, aptitude tests, and career quizzes? 
+          <span class="faq-icon" id="icon3">+</span>
+        </button>
+        <div class="faq-ans hide-faq" id="ans3">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque harum facere deserunt itaque? Expedita sint labore eaque iusto eveniet pariatur quos, accusantium est deserunt, minima exercitationem doloribus repellendus maxime in.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos obcaecati suscipit quidem error autem velit doloribus! Mollitia, dolor laborum, reiciendis fugit accusantium eius voluptatem aspernatur excepturi id porro minus est.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button onclick=showans4() class="faq-que">
+          Why is CareerFitter better than other career assessments, aptitude tests, and career quizzes? 
+          <span class="faq-icon" id="icon4">+</span>
+        </button>
+        <div class="faq-ans hide-faq" id="ans4">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque harum facere deserunt itaque? Expedita sint labore eaque iusto eveniet pariatur quos, accusantium est deserunt, minima exercitationem doloribus repellendus maxime in.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos obcaecati suscipit quidem error autem velit doloribus! Mollitia, dolor laborum, reiciendis fugit accusantium eius voluptatem aspernatur excepturi id porro minus est.</p>
+        </div>
+      </div>
+    </div>
+
     <footer>
         <div class="foo">
             <div >
@@ -347,6 +392,31 @@
         function hideSidebar(){
             const sidebar = document.querySelector('.sidebar');
             sidebar.style.display = 'none';
+        }
+        function showans1(){
+          const ans = document.querySelector('#ans1');
+          const icon = document.querySelector('#icon1');
+          icon.classList.toggle("active");
+          ans.classList.toggle("hide-faq");
+          
+        }
+        function showans2(){
+          const ans = document.querySelector('#ans2');
+          const icon = document.querySelector('#icon2');
+          icon.classList.toggle("active");
+          ans.classList.toggle("hide-faq");
+        }
+        function showans3(){
+          const ans = document.querySelector('#ans3');
+          const icon = document.querySelector('#icon3');
+          icon.classList.toggle("active");
+          ans.classList.toggle("hide-faq");
+        }
+        function showans4(){
+          const ans = document.querySelector('#ans4');
+          const icon = document.querySelector('#icon4');
+          icon.classList.toggle("active");
+          ans.classList.toggle("hide-faq");
         }
     </script>
     <script type = "module" src="/AssesScript.js"></script>
