@@ -22,7 +22,6 @@ for(let i = 0; i < n; i ++){
         passValue(a);
         cont[k].style.display = 'none';
         k++;
-        console.log(`${k}`);
         if(k == 15){
             document.getElementById("complete_button").classList.remove("hidecard");
             document.getElementById("complete_button").classList.add("completebutton");
@@ -35,26 +34,48 @@ for(let i = 0; i < n; i ++){
     });
 }
 function passValue(key){
-    switch(key){
+    const numKey = parseInt(key, 10); // Convert key to a number
+    switch(numKey){
         case 1:
             careerScores[0]++;
+            console.log(`score of ${careerNames[0]} is: ${careerScores[0]}`);
+            break;
         case 2:
             careerScores[1]++;
+            console.log(`score of ${careerNames[1]} is: ${careerScores[0]}`);
+            break;
         case 3:
             careerScores[2]++;
+            console.log(`score of ${careerNames[2]} is: ${careerScores[0]}`);
+            break;
         case 4:
             careerScores[3]++;
+            console.log(`score of ${careerNames[3]} is: ${careerScores[0]}`);
+            break;
         case 5:
             careerScores[4]++;
+            console.log(`score of ${careerNames[4]} is: ${careerScores[0]}`);
+            break;
         case 6:
             careerScores[5]++;
+            console.log(`score of ${careerNames[5]} is: ${careerScores[0]}`);
+            break;
         case 7:
             careerScores[6]++;
+            console.log(`score of ${careerNames[6]} is: ${careerScores[0]}`);
+            break;
         case 8:
             careerScores[7]++;
+            console.log(`score of ${careerNames[7]} is: ${careerScores[0]}`);
+            break;
+        default:
+            console.log("ok");
     }
 }
-function findcareer(){
+
+document.getElementById("he").addEventListener("click",findcareer);
+
+function findcareer() {
     let maxScore = -Infinity; // Initialize with the smallest possible number
     let suitedCareerIndex = -1;
     for (let i = 0; i < careerScores.length; i++) {
@@ -63,5 +84,35 @@ function findcareer(){
             suitedCareerIndex = i;
         }
     }
-    console.log(`Suited career for you is ${careerNames[suitedCareerIndex]}`)
+    console.log(`Suited career index is: ${suitedCareerIndex}`);
+    
+    // Send the suitedCareerIndex to the server
+    fetch('/submit-career', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ suitedCareerIndex }) // Send only the index
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Server response:', data);
+        alert('Career index saved successfully!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    return suitedCareerIndex;
 }
+// function addtodatabase(key){
+//     const db = new pg.Client({
+//         user: "postgres",
+//         host: "localhost",
+//         database: "world",
+//         password: "Mayur@2005",
+//         port: 5432,
+//       });
+//       db.connect();
+//     db.query(`insert into visited_country (country_code) values ($1)`,[key]);  
+// }

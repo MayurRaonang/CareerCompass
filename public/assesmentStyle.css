@@ -8,17 +8,18 @@ body{
 }
 
 .questionbox{
-    height: 100px;
-    width: 800px;
+    height: 40%;
+    width: 60%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     border-radius: 25px;
-    gap: 20px;
+    column-gap: 20px;
 }
 
 .questions{
     height: 70vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,14 +31,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 70%;
     background-color: rgb(194, 217, 214);
 }
 
 .options{
     border-radius: 25px;
   
-    height: 50px;
+    height: 70%;
     background-color: rgb(134, 165, 215);
 }
 
@@ -78,8 +79,8 @@ body{
 }
 
 .progress-container {
-    width: 800px;
-    height: 20px;
+    width: 60%;
+    height: 10%;
     background-color: #e0e0e0;
     border-radius: 10px;
     margin: 20px 0;
