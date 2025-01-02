@@ -8,21 +8,22 @@ body{
 }
 
 .questionbox{
-    height: 100px;
-    width: 800px;
+    height: 70%;
+    width: 60%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     border-radius: 25px;
-    gap: 20px;
+    column-gap: 20px;
 }
 
 .questions{
-    height: 70vh;
+    height: 40vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 0px 0px;
 }
 
 .que{
@@ -30,14 +31,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 70%;
     background-color: rgb(194, 217, 214);
 }
 
 .options{
     border-radius: 25px;
   
-    height: 50px;
+    height: 70%;
     background-color: rgb(134, 165, 215);
 }
 
@@ -78,18 +79,75 @@ body{
 }
 
 .progress-container {
-    width: 800px;
-    height: 20px;
+    width: 60%;
+    height: 18%;
     background-color: #e0e0e0;
     border-radius: 10px;
-    margin: 20px 0;
     overflow: hidden;
-  }
+    margin-top: 3%;
+    margin-bottom: 1%;
+}
   
-  .progress-bar {
+.progress-bar {
     width: 0;
     height: 100%;
     background-color: #48e7c2;
     transition: width 0.3s ease-in-out;
-  }
-  
+}
+
+.faq-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2%;
+}
+
+.faq-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.faq-que{
+    border: none;
+    background-color: #48e7c2;
+    width: 70%;
+    text-align: left;
+    font-size: larger;
+    height: 40px;
+    padding-left: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.faq-que:hover{
+    background-color: #8bfde3;
+}
+
+.faq-que span{
+    position: absolute;
+    left: 96.5%;
+    font-size: x-large;
+}
+
+.faq-ans{
+    background-color: #48e7c2;
+    width: 68.7%;
+    padding: 10px 10px;
+    transition: height 2s;
+}
+
+.hide-faq{
+    display: none;
+}
+
+.faq-ans p{
+    margin-top: 15px;
+}
+
+.active
+{
+    rotate: 45deg;
+}
