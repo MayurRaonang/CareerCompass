@@ -34,11 +34,13 @@ var name;
 var password;
 var flag = false;
 
+let posts = [];
+
 const db = new pg.Client({
   user : "postgres",
   host : "localhost",
   database : "CareerCompass",
-  password : "Mayur@2005",
+  password : "Sumit@06",
   port : 5432
 });
 db.connect();
@@ -77,9 +79,9 @@ app.get("/profile",(req,res)=>{
   }
 });
 
-app.get("/comunity",(req,res)=>{
-  res.send("not ready");
-});
+// app.get("/comunity",(req,res)=>{
+//   res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
+// });
 
 app.post('/submit-career', async (req, res) => {
   const suitedCareerIndex = req.body.suitedCareerIndex; // Extract suitedCareerIndex
@@ -98,6 +100,26 @@ app.post('/submit-career', async (req, res) => {
       res.status(500).json({ success: false, message: 'Failed to save career index.' });
   }
 });
+
+app.get("/comunity",async (req,res) => {
+  const result = await db.query("Select * from comments");
+  console.log(result.rows);
+  posts = result.rows;
+  res.render("community.ejs",{
+    posts : posts,
+    name: "Sumit Rathod"
+  })
+})
+
+app.get("/new",(req,res) => {
+   res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
+})
+
+app.post("/new", async (req,res) => {
+  const title = req.body.title;
+  const content = req.body.content;
+  console.log(name);
+})
 
 
 app.post(
@@ -156,6 +178,7 @@ passport.use(
       const result = await db.query("SELECT * FROM userinfo WHERE email = $1 ", [
         username,
       ]);
+      name = result.rows[0];
       if (result.rows.length > 0) {
         const user = result.rows[0];
         console.log(user);
