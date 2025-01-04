@@ -9,7 +9,6 @@ import env from "dotenv";
 import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import e from "express";
 // import findcareer from './public/AssesScript.js';
 // findcareer();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -54,6 +53,7 @@ app.get("/login",(req,res)=>{
 
 app.get("/assesment",(req,res) => {
   if (req.isAuthenticated()) {
+    console.log('i am logged in')
     res.sendFile(path.join(__dirname, 'public', 'assesment.html'));
   } else {
     res.redirect("/login");
@@ -69,7 +69,12 @@ app.get("/resource",(req,res)=>{
 });
 
 app.get("/profile",(req,res)=>{
-  res.send("not ready");
+  if (req.isAuthenticated()) {
+    console.log('i am logged in');
+    res.render("profile.ejs");
+  } else {
+    res.redirect("/login");
+  }
 });
 
 app.get("/comunity",(req,res)=>{
@@ -191,201 +196,6 @@ passport.serializeUser((user, cb) => {
 passport.deserializeUser((user, cb) => {
   cb(null, user);
 });
-
-// app.post("/login",async (req,res)=>{
-//   if(flag === true){
-//     res.redirect("/assesment");
-//   }
-//     name = req.body["username"];
-//     password = req.body["password"];
-  
-//     const result = await db.query("Select password from userinfo where email = $1",[name]);
-  
-//     if(result.rows.length > 0)
-//     {
-//       const user = result.rows[0];
-//       const dbpass = user.password;
-  
-//       if(dbpass === password)
-//       {
-//           flag = true;
-//           res.redirect("/assesment");
-//       }
-//       else{
-//         res.send("<h1>Incorrect Password</h1>");
-//       }
-//     }
-//     else
-//     {
-//       res.send("<h1>Seller not Found</h1>");
-//     }
-//   });
-
-// app.get("/homepage-customer", async (req,res) => {
-//   const pro = await db.query("Select * From product");
-//   if(pro.rows <= 0)
-//   {
-//     console.log("Error : ",err.stack);
-//   }
-//   else
-//   {
-//     products = pro.rows;
-//   }
-
-//   res.render("home-customer.ejs",
-//     {
-//         products: products
-//     }
-//   )
-// })
-
-// app.get("/homepage-seller",async (req,res)=>{
-
-//   const id = await db.query("Select id from seller where name = $1",[name]);
-//   const pro = await db.query("Select * From product Where sid = $1",[id.rows[0].id]);
-//   if(pro.rows <= 0)
-//   {
-//     products = [];
-//   }
-//   else
-//   {
-//     products = pro.rows;
-//   }
-
-//   res.render("home-seller.ejs",
-//     {
-//         products: products
-//     }
-//   )
-// })
-
-// app.post("/login-customer",async (req,res)=>{
-
-//   name = req.body["username"];
-//   password = req.body["password"];
-
-//   const resul = await db.query("Select password from customer where name = $1",[name]);
-
-//   if(resul.rows.length > 0)
-//   {
-//     const user = resul.rows[0];
-//     const dbpass = user.password;
-
-//     if(dbpass === password)
-//     {
-//       res.redirect("/homepage-customer");
-//     }
-//     else{
-//       res.send("<h1>Incorrect Password</h1>");
-//     }
-//   }
-//   else
-//   {
-//     res.send("<h1>Customer not Found</h1>");
-//   }
-// })
-
-// 
-
-// app.post("/register-customer",async (req,res)=>{
-
-//   name = req.body["username"];
-//   password = req.body["password"];
-//   const age = req.body["age"];
-//   const phone_no = req.body["phone_no"];
-
-//   await db.query("Insert Into customer(name,password,age,phone_no) Values ($1,$2,$3,$4)",[name,password,age,phone_no]);
-//   res.sendFile(__dirname + "/public/login-customer.html");
-// })
-
-
-// app.get("/add-product",(req,res)=>{
-//   res.sendFile(__dirname + "/public/add-product.html");
-// })
-
-// app.post("/add-product-redirect",async (req,res) => {
-
-//   const pname = req.body["pname"];
-//   const desc = req.body["description"];
-//   const price = req.body["price"];
-
-//   const id = await db.query("Select id from seller where name = $1",[name]);
-
-//   await db.query("Insert into product(sid,pname,price,description) values($1,$2,$3,$4)",[id.rows[0].id,pname,price,desc]);
-
-//   res.redirect("/homepage-seller");
-  
-// })
-
-// app.get("/deleteproduct/:id", async (req, res) => {
-  
-//   await db.query("Delete from product where id = $1",[req.params.id]);
-
-//   res.redirect("/homepage-seller");
-
-//   });
-
-// app.get("/buyproduct/:id",async (req,res) => {
-
-//   const pro = await db.query("Select * From product Where id = $1",[req.params.id]);
-//   if(pro.rows <= 0)
-//   {
-//     products = [];
-//   }
-//   else
-//   {
-//     products = pro.rows;
-//   }
-//   res.render("buy-product.ejs",
-//     {
-//         products: products
-//     }
-//   )
-// })
-
-// app.post("/finallybuyproduct/:id",async (req,res)=>{
-//   const date = req.body["date"];
-//   const mode = req.body["payment-mode"];
-//   const pid = req.params.id;
-
-//   const resul = await db.query("Select * from product where id = $1",[pid]);
-//   const pname = resul.rows[0].pname;
-//   const price = resul.rows[0].price;
-
-//   const id = await db.query("Select id from customer where name = $1",[name]);
-
-//   await db.query("Insert into odetails(pid,cid,payment_mode,odate,pname,price) values($1,$2,$3,$4,$5,$6)",[pid,id.rows[0].id,mode,date,pname,price]);
-
-//   res.redirect("/homepage-customer");
-// })
-
-// app.get("/orderdetails",async (req,res)=>{
-//   const temp_id = await db.query("Select id from customer where name = $1",[name]);
-//   const cid = temp_id.rows[0].id;
-
-//     const resul = await db.query("Select * from odetails where cid = $1",[cid]);
-//     if(resul.rows.length > 0)
-//     {
-//         res.render("order-details.ejs",{
-//           products : resul.rows
-//         })
-//     }
-//     else
-//     {
-//       res.render("order-details.ejs",{
-//         products : []
-//       })
-//     }
-// })
-
-// app.get("/deleteodetails/:id",async (req,res)=>{
-//   const id = req.params.id;
-//   await db.query("Delete from odetails where id = $1",[id]);
-
-//   res.redirect("/orderdetails");
-
-// })
-
 
 app.listen(port,()=>{
     console.log(`Server Running on Port ${port}`);
