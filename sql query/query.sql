@@ -7,3 +7,14 @@ create table comments(
 	comment_date date
 )
 
+create table userinfo(
+	uid serial primary key,
+	email varchar(100),
+	password varchar(100),
+	assesment int,
+	age int,
+	phone_no int,
+	name varchar(100),
+	address varchar(800),
+	education varchar(500)
+);

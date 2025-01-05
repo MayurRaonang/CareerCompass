@@ -9,6 +9,7 @@ import env from "dotenv";
 import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { log } from "console";
 // import findcareer from './public/AssesScript.js';
 // findcareer();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -37,11 +38,11 @@ var flag = false;
 let posts = [];
 
 const db = new pg.Client({
-  user : "postgres",
-  host : "localhost",
-  database : "CareerCompass",
-  password : "Sumit@06",
-  port : 5432
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
 });
 db.connect();
 
@@ -79,6 +80,26 @@ app.get("/profile",(req,res)=>{
   }
 });
 
+app.get("/comunity",async (req,res) => {
+  const result = await db.query("Select * from comments");
+  console.log(result.rows);
+  posts = result.rows;
+  console.log(name);
+  res.render("community.ejs",{
+    posts : posts,
+    name: name
+  })
+})
+
+app.get("/new",(req,res) => {
+  if (req.isAuthenticated()) {
+    console.log('i am logged in for posting comments');
+    res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
+  } else {
+    res.redirect("/login");
+  }
+   
+})
 // app.get("/comunity",(req,res)=>{
 //   res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
 // });
@@ -101,31 +122,23 @@ app.post('/submit-career', async (req, res) => {
   }
 });
 
-app.get("/comunity",async (req,res) => {
-  const result = await db.query("Select * from comments");
-  console.log(result.rows);
-  posts = result.rows;
-  res.render("community.ejs",{
-    posts : posts,
-    name: "Sumit Rathod"
-  })
-})
-
-app.get("/new",(req,res) => {
-   res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
-})
-
 app.post("/new", async (req,res) => {
   const title = req.body.title;
   const content = req.body.content;
   console.log(name);
+  await db.query("insert into comments(title,msg,user_name) values($1,$2,$3)",[title,content,name]);
+  // res.render("community.ejs",{
+  //   posts : posts,
+  //   name: name
+  // })
+  res.redirect("/comunity");
 })
 
 
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/assesment",
+    successRedirect: "/",
     failureRedirect: "/login",
   })
 );
@@ -133,8 +146,12 @@ app.post(
 app.post("/register", async (req, res) => {
   const email = req.body.username;
   const password = req.body.password;
+  const naam = req.body.name;
+  const edu = req.body.education;
+  const addr = req.body.address;
   const age = req.body.age;
   const phone_no = req.body.phone_no;
+  name = result.rows[0].name;
   console.log(email);
   try {
     const checkResult = await db.query("SELECT * FROM userinfo WHERE email = $1", [
@@ -145,7 +162,7 @@ app.post("/register", async (req, res) => {
       res.redirect("/login");
     } else {
       const result = await db.query(
-              "Insert Into userinfo(email,password,age,phone_no) Values ($1,$2,$3,$4) returning *",[email,password,age,phone_no]
+              "Insert Into userinfo(email,password,age,phone_no,name,address,education) Values ($1,$2,$3,$4,$5,$6,$7) returning *",[email,password,age,phone_no,naam,addr,edu]
             );
             const user = result.rows[0];
             req.login(user, (err) => {
@@ -178,7 +195,7 @@ passport.use(
       const result = await db.query("SELECT * FROM userinfo WHERE email = $1 ", [
         username,
       ]);
-      name = result.rows[0];
+      name = result.rows[0].name;
       if (result.rows.length > 0) {
         const user = result.rows[0];
         console.log(user);
