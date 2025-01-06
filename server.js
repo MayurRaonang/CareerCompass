@@ -9,7 +9,7 @@ import env from "dotenv";
 import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { log } from "console";
+
 // import findcareer from './public/AssesScript.js';
 // findcareer();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -20,15 +20,32 @@ env.config();
 
 app.use(
   session({
-    secret: "TOPSECRETWORD",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
 );
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-
+let redirectUrl;
+const saveRedirectUrl = (req, res, next) => {
+  if(req.originalUrl != "/login")
+    redirectUrl = req.originalUrl; // Save the URL
+    console.log('Redirect URL:', redirectUrl); // Debugging
+  
+  next();
+};
+app.use(saveRedirectUrl);
+// const saveRedirectUrl = (req, res, next) => {
+//   if (req.session.redirectUrl) {
+//       console.log(req);
+//   }
+//   console.log(a);
+//   next();
+// };
+// app.use(saveRedirectUrl);
 app.use(passport.initialize());
 app.use(passport.session());
 var name;
@@ -138,9 +155,13 @@ app.post("/new", async (req,res) => {
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
     failureRedirect: "/login",
-  })
+  }),
+  (req, res) => {
+    const a = redirectUrl || "/"; // Default to home if no URL is saved
+    //req.session.redirectUrl = null; // Clear the session value after use
+    res.redirect(a);
+  }
 );
 
 app.post("/register", async (req, res) => {
@@ -167,7 +188,7 @@ app.post("/register", async (req, res) => {
             const user = result.rows[0];
             req.login(user, (err) => {
               console.log("success");
-              res.redirect("/assesment");
+              req.session.redirectUrl = req.originalUrl;
             });
       // bcrypt.hash(password, saltRounds, async (err, hash) => {
       //   if (err) {
