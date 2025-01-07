@@ -3,39 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShopZone</title>
+  <title>Register</title>
   <link rel="stylesheet" href="login_register.css">
 </head>
 <body>
-
-  <div class="login-container">
-    <h2>Register as Seller</h2>
+  <div class="register_container">
+    <div class="register_logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
+        <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/>
+        <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
+      </svg>
+      Career Compass
+    </div>
     <form action="/register" method="POST">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required>
-      
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="education">Education</label>
-      <input type="text" id="education" name="education" required>
-
-      <label for="address">Address</label>
-      <input type="text" id="address" name="address" required>
-
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" required>
-
-      <label for="phone_no">Phone No.</label>
-      <input type="number" id="phone_no" name="phone_no" required>
-      
+      <div class="form_item">
+        <input type="text" placeholder="Username" id="username" name="username" required>
+      </div>
+      <div class="form_item">
+        <input type="password" placeholder="Password" id="password" name="password" required>
+      </div>
+      <div class="form_item">
+        <input type="email" placeholder="E-mail address" id="email" name="email" required>
+      </div>      
       <button type="submit">Register</button>
-      <p class="signup-text">Already have an account? <a href="/login.html">Login</a></p>
+      <p class="sign-in-text">Already have an account? <a href="/login.html">Login</a></p>
+      <div class="social-signin">
+        <div>or you can sign in with</div>
+        <div class="social-icons">
+            <a href="#" title="Google">
+                <svg width="20" height="20" fill="#666" viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-.05 16c-3.312 0-6-2.688-6-6s2.688-6 6-6c1.62 0 2.976.594 4.014 1.566L14.26 9.222c-.432-.408-1.188-.882-2.31-.882-1.98 0-3.6 1.638-3.6 3.66s1.62 3.66 3.6 3.66c2.292 0 3.156-1.638 3.3-2.484h-3.3v-2.058h5.502c.054.282.096.576.096.936 0 3.342-2.238 5.946-5.598 5.946z"/>
+                </svg>
+            </a>
+            <a href="#" title="GitHub">
+                <svg width="20" height="20" fill="#666" viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+            </a>
+            <a href="#" title="Facebook">
+                <svg width="20" height="20" fill="#666" viewBox="0 0 24 24">
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
     </form>
   </div>
-
 </body>
 </html>

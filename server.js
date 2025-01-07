@@ -23,6 +23,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    
   })
 );
 
@@ -31,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 let redirectUrl;
 const saveRedirectUrl = (req, res, next) => {
-  if(req.originalUrl != "/login")
+  if(req.originalUrl != "/login" && req.originalUrl != "/register")
     redirectUrl = req.originalUrl; // Save the URL
     console.log('Redirect URL:', redirectUrl); // Debugging
   
@@ -91,7 +92,9 @@ app.get("/resource",(req,res)=>{
 app.get("/profile",(req,res)=>{
   if (req.isAuthenticated()) {
     console.log('i am logged in');
-    res.render("profile.ejs");
+    res.render("profile.ejs",{
+      name:name
+    });
   } else {
     res.redirect("/login");
   }
@@ -165,14 +168,10 @@ app.post(
 );
 
 app.post("/register", async (req, res) => {
-  const email = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
-  const naam = req.body.name;
-  const edu = req.body.education;
-  const addr = req.body.address;
-  const age = req.body.age;
-  const phone_no = req.body.phone_no;
-  name = result.rows[0].name;
+  const naam = req.body.username;
+  
   console.log(email);
   try {
     const checkResult = await db.query("SELECT * FROM userinfo WHERE email = $1", [
@@ -183,12 +182,16 @@ app.post("/register", async (req, res) => {
       res.redirect("/login");
     } else {
       const result = await db.query(
-              "Insert Into userinfo(email,password,age,phone_no,name,address,education) Values ($1,$2,$3,$4,$5,$6,$7) returning *",[email,password,age,phone_no,naam,addr,edu]
+              "Insert Into userinfo(email,password,name) Values ($1,$2,$3) returning *",[email,password,naam]
             );
+            name = result.rows[0].username;
             const user = result.rows[0];
             req.login(user, (err) => {
               console.log("success");
-              req.session.redirectUrl = req.originalUrl;
+              const a = redirectUrl || "/"; // Default to home if no URL is saved
+              //req.session.redirectUrl = null; // Clear the session value after use
+              console.log(`inside register ${a}`);
+              res.redirect(a);
             });
       // bcrypt.hash(password, saltRounds, async (err, hash) => {
       //   if (err) {
