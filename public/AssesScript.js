@@ -1,13 +1,12 @@
-let careerScores = [0, 0, 0, 0, 0, 0, 0, 0];
+let careerScores = [0, 0, 0, 0, 0, 0, 0];
 const careerNames = [
-    "engineering",
-    "medicine",
-    "arts",
-    "business",
-    "law",
-    "research",
-    "education",
-    "entrepreneurship"
+    "User Experience Designer",//1
+    "Machine Learning Engineer",//2
+    "Database Administrator",//3
+    "Full Stack Developer",//4
+    "Cloud Engineer",//5
+    "Blockchain Developer",//6
+    "Cybersecurity Specialist"//7
 ];
 var n = document.querySelectorAll('.ans').length;
 var b = document.querySelectorAll('.ans');
@@ -22,7 +21,7 @@ for(let i = 0; i < n; i ++){
         passValue(a);
         cont[k].style.display = 'none';
         k++;
-        if(k == 15){
+        if(k == 14){
             document.getElementById("complete_button").classList.remove("hidecard");
             document.getElementById("complete_button").classList.add("completebutton");
         }
@@ -42,31 +41,27 @@ function passValue(key){
             break;
         case 2:
             careerScores[1]++;
-            console.log(`score of ${careerNames[1]} is: ${careerScores[0]}`);
+            console.log(`score of ${careerNames[1]} is: ${careerScores[1]}`);
             break;
         case 3:
             careerScores[2]++;
-            console.log(`score of ${careerNames[2]} is: ${careerScores[0]}`);
+            console.log(`score of ${careerNames[2]} is: ${careerScores[2]}`);
             break;
         case 4:
             careerScores[3]++;
-            console.log(`score of ${careerNames[3]} is: ${careerScores[0]}`);
+            console.log(`score of ${careerNames[3]} is: ${careerScores[3]}`);
             break;
         case 5:
             careerScores[4]++;
-            console.log(`score of ${careerNames[4]} is: ${careerScores[0]}`);
+            console.log(`score of ${careerNames[4]} is: ${careerScores[4]}`);
             break;
         case 6:
             careerScores[5]++;
-            console.log(`score of ${careerNames[5]} is: ${careerScores[0]}`);
+            console.log(`score of ${careerNames[5]} is: ${careerScores[5]}`);
             break;
         case 7:
             careerScores[6]++;
-            console.log(`score of ${careerNames[6]} is: ${careerScores[0]}`);
-            break;
-        case 8:
-            careerScores[7]++;
-            console.log(`score of ${careerNames[7]} is: ${careerScores[0]}`);
+            console.log(`score of ${careerNames[6]} is: ${careerScores[6]}`);
             break;
         default:
             console.log("ok");
@@ -76,6 +71,9 @@ function passValue(key){
 document.getElementById("he").addEventListener("click",findcareer);
 
 function findcareer() {
+    for(var i = 0; i < careerScores.length; i++){
+        console.log(`score of ${careerNames[i]} is: ${careerScores[i]}`)
+    }
     let maxScore = -Infinity; // Initialize with the smallest possible number
     let suitedCareerIndex = -1;
     for (let i = 0; i < careerScores.length; i++) {
@@ -105,6 +103,8 @@ function findcareer() {
 
     return suitedCareerIndex;
 }
+
+
 // function addtodatabase(key){
 //     const db = new pg.Client({
 //         user: "postgres",
