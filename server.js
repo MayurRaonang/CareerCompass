@@ -20,7 +20,7 @@ env.config();
 
 app.use(
   session({
-    secret: "process.env.SESSION_SECRET",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     
@@ -57,11 +57,11 @@ let user;
 let posts = [];
 
 const db = new pg.Client({
-  user : "postgres",
-  host : "localhost",
-  database : "CareerCompass",
-  password : "Sumit@06",
-  port : 5432
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
 });
 db.connect();
 
@@ -90,9 +90,11 @@ app.get("/assesment",(req,res) => {
   }
 });
 
-app.get("/explore",(req,res)=>{
+app.get("/explore",async(req,res)=>{
+  const car = await db.query("select * from career")
+  console.log(car.rows);
   res.render("explore.ejs",{
-    careers : career,
+    careers : car.rows,
     percent : "95"
   });
 });

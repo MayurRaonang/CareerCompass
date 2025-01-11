@@ -48,8 +48,8 @@
     <% careers.forEach(career=> { %>
     <div class="comcard">
         <div class="c c1">
-            <h3><%= career.name %></h3>
-            <p><%= career.desc %></p>
+            <h3><%= career.career_name %></h3>
+            <p><%= career.career_description %></p>
             <div class="match">
                 <p><%= percent %>% Match</p>
             </div>
@@ -83,9 +83,9 @@
         <div class="c c3">
             <h5>Key Requirements</h5>
             <ul>
-                <li><%= career.req1 %></li>
-                <li><%= career.req2 %></li>
-                <li><%= career.req3 %></li>
+                <li><%= career.requirement1 %></li>
+                <li><%= career.requirement2 %></li>
+                <li><%= career.requirement3 %></li>
             </ul>
         </div>
         <div class="c4">
