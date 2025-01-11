@@ -1,0 +1,106 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #f7f9fc;
+    color: #333;
+    /* line-height: 1.6; */
+}
+
+.cont1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    margin: 1%;
+}
+
+.cont1 p{
+    margin-top: 0.5%;
+}
+
+/* com */
+.comcard{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+    max-width: 1050px;
+    margin-left: 21.5%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2%;
+    margin: 30px auto;
+}
+
+.c{
+    margin-left: 50px;
+}
+
+.c1{
+    margin-top: 2%;
+    position: relative;
+}
+
+.c1 h3{
+    font-size: xx-large;
+    margin-bottom: 1%;
+}
+
+.c1 p{
+    font-size: large;
+}
+
+.c2{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 3%;
+    font-size: large;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.c3 h5{
+    font-size: larger;
+    margin-bottom: 1%;
+}
+
+.c3 li{
+    font-size: large;
+    margin: 0.5% auto;
+    margin-left: 3%;
+}
+
+.c4 button{
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2%;
+    text-align: left;
+    height: 50px;
+    font-size: larger;
+    padding-left: 50px;
+    padding-top: 10px;
+    color: blue;
+}
+
+.match{
+    position: absolute;
+    bottom: 25%;
+    left: 85%;
+    background-color: aqua;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.s{
+    display: flex;
+    gap: 2px;
+    width: 20%;
+    align-items: center;
+}
+
