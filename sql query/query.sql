@@ -18,3 +18,14 @@ create table userinfo(
 	address varchar(800),
 	education varchar(500)
 );
+
+CREATE TABLE rough (
+    career_id SERIAL PRIMARY KEY,
+    career_name VARCHAR(100) NOT NULL,
+    career_description TEXT NOT NULL,
+    salary NUMERIC(10, 2),
+    growth VARCHAR(50),
+    requirement1 VARCHAR(255),
+    requirement2 VARCHAR(255),
+    requirement3 VARCHAR(255) 
+);

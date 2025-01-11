@@ -52,6 +52,7 @@ app.use(passport.session());
 var name;
 var password;
 var flag = false;
+let user;
 
 let posts = [];
 
@@ -91,9 +92,15 @@ app.get("/resource",(req,res)=>{
 
 app.get("/profile",(req,res)=>{
   if (req.isAuthenticated()) {
-    console.log('i am logged in');
+    console.log('i am logged in in profile');
+    console.log(user);
     res.render("profile.ejs",{
-      name:name
+      name:user.name,
+      summary:"i am a pro python developer",
+      location: user.address,
+      contactno: user.phone_no,
+      education: user.education,
+      age: user.age
     });
   } else {
     res.redirect("/login");
@@ -185,7 +192,8 @@ app.post("/register", async (req, res) => {
               "Insert Into userinfo(email,password,name) Values ($1,$2,$3) returning *",[email,password,naam]
             );
             name = result.rows[0].username;
-            const user = result.rows[0];
+            // loginuser = result.rows[0].email;
+            user = result.rows[0];
             req.login(user, (err) => {
               console.log("success");
               const a = redirectUrl || "/"; // Default to home if no URL is saved
@@ -220,8 +228,9 @@ passport.use(
         username,
       ]);
       name = result.rows[0].name;
+      // loginuser = result.rows[0].email;
       if (result.rows.length > 0) {
-        const user = result.rows[0];
+        user = result.rows[0];
         console.log(user);
         const storedHashedPassword = user.password;
         if(password === storedHashedPassword){

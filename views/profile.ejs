@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
             <li><a href="">Profile</a></li>
         </ul>
         <ul>
-          <!-- <form action="/login" method="GET"><button type="submit">Assesment</button></form> -->
+          <form action="/login" method="GET"><button type="submit">Assesment</button></form>
             <li id="logo"><form action="/" method="GET"><button type="submit">Career Compass</button></form></li>
             <li class="hide"><form action="/" method="GET"><button type="submit">Home</button></form></li>
             <li class="hide"><form action="/assesment" method="GET"><button type="submit">Assesment</button></form></li>
@@ -126,5 +126,334 @@
             sidebar.style.display = 'none';
         }
     </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guidance Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .header {
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+        }
+
+        .profile-section {
+            position: absolute;
+            bottom: -50px;
+            left: 32px;
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border: 4px solid white;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .profile-info {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .profile-info h1 {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .profile-info p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 24px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 6px;
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .nav-item svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .form-control {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .edit-button {
+            padding: 6px 12px;
+            background: transparent;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .edit-button:hover {
+            background: #f5f5f5;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon svg {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                align-items: flex-start;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+            }
+
+            .profile-info {
+                margin-bottom: 0;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="profile-section">
+            <img src="https://via.placeholder.com/120" alt="Profile picture" class="profile-image">
+            <div class="profile-info">
+                <h1>Career Profile</h1>
+                <p>ID: CareerGuidance123</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <a href="#basic-info" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Basic Info
+            </a>
+            <a href="#points" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 15l-2-5 5-2-2 5 2 5-5 2 2-5z"></path>
+                </svg>
+                Points
+            </a>
+            <a href="#lab" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 3v15m0 0a3 3 0 1 0 6 0M9 18c0 1.657 1.343 3 3 3s3-1.343 3-3"></path>
+                </svg>
+                Lab
+            </a>
+            <a href="#privacy" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Privacy
+            </a>
+            <a href="#notifications" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                Notifications
+            </a>
+        </nav>
+
+        <main class="main-content">
+            <h2 class="section-title">Basic Info</h2>
+            
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="form-label">Name</label>
+                    <% if(locals.name){ %>
+                        <h4><%= name %></h4>
+                    <% }else { %>
+                        <input type="text" class="form-input" placeholder="Your name">
+                    <% } %>
+                    
+                </div>
+                <button class="edit-button">Edit</button>
+            </div>
+
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="form-label">Location</label>
+                    <% if(locals.location){ %>
+                        <h4><%= location %></h4>
+                    <% }else { %>
+                        <input type="text" class="form-input" placeholder="City, State, Country">
+                    <% } %>
+                </div>
+                <button class="edit-button">Edit</button>
+            </div>
+
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="form-label">Education</label>
+                    <% if(locals.education){ %>
+                        <h4><%= education %></h4>
+                    <% }else { %>
+                        <input type="text" class="form-input" placeholder="Degree course">
+                    <% } %>
+                </div>
+                <button class="edit-button">Edit</button>
+            </div>
+
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="form-label">Contact Number</label>
+                    <% if(locals.contactno){ %>
+                        <h4>91+<%= contactno %></h4>
+                    <% }else { %>
+                        <input type="text" class="form-input" placeholder="91+__________">
+                    <% } %>
+                </div>
+                <button class="edit-button">Edit</button>
+            </div>
+
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="form-label">Summary</label>
+                    <% if(locals.summary){ %>
+                        <h4><%= summary %></h4>
+                    <% }else { %>
+                        <textarea class="form-textarea" placeholder="Tell us about yourself (interests, experience, etc.)"></textarea>
+                    <% } %>
+
+                </div>
+                <button class="edit-button">Edit</button>
+            </div>
+
+            <div class="form-group">
+                <div class="form-control">
+                    <label class="form-label">Linked</label>
+                    <div class="input-with-icon">
+                        <% if(locals.location){ %>
+                            <h4><%= location %></h4>
+                        <% }else { %>
+                            <input type="url" class="form-input" placeholder="Your blog, portfolio, etc.">
+                        <% } %>
+                        <a href = "<%= location %>" ><svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg></a>
+                    </div>
+                </div>
+                <button class="edit-button">Edit</button>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
