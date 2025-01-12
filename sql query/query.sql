@@ -1,10 +1,12 @@
-create table comments(
-	comment_id serial primary key,
-	title varchar(100) not null,
-	msg varchar(800) not null,
-	likes int,
-	user_name varchar(50),
-	comment_date date
+Create table comments(
+	c_id serial primary key,
+	title varchar(200),
+	msg varchar(500),
+	user_name varchar(100),
+	comment_date varchar(50),
+	topic1 varchar(100),
+	topic2 varchar(100),
+	topic3 varchar(100)
 )
 
 create table userinfo(
@@ -19,7 +21,7 @@ create table userinfo(
 	education varchar(500)
 );
 
-CREATE TABLE rough (
+CREATE TABLE career (
     career_id SERIAL PRIMARY KEY,
     career_name VARCHAR(100) NOT NULL,
     career_description TEXT NOT NULL,

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community</title>
+  <title>Blog</title>
   <link rel="stylesheet" href="/comment.css">
   <link rel="stylesheet" href="/style.css">
 
@@ -44,31 +44,49 @@
         </ul>
     </nav>
 
-  <div class="container">
-    <h1>Community Posts</h1>
-    <a id="newPostBtn" href="/new">New Post</a>
-    <ul id="postsList">
-      <% posts.forEach(post=> { %>
-        <li>
-          <h2>
-            <%=post.title%>
-          </h2>
-          <small>
-            <%=post.comment_date %>
-          </small>
-          <p>
-            <%=post.msg%>
-          </p>
-          <small>By: <%=post.user_name%> </small>
-        
-          <% if(name === post.user_name) { %>
-            <a class="edit" href="/edit/<%= post.id %>">Edit</a>
-            <a class="delete" href="/api/posts/delete/<%= post.id %>">Delete</a>
-            <% } %>
-        </li>
-        <% }); %>
-    </ul>
+  <div class="community-heading">
+      <h1>Career Community</h1>
+      <p>Connect, share, and grow with fellow professionals</p>
   </div>
+
+  <div class="community-form">
+      <h1>Share your Journey</h1>
+      <form id="newPostForm" method="post" action="/new">
+          <input type="text" name="title" placeholder="Title" id="title-box" required>
+          <textarea name="content" placeholder="Content" required rows="10"></textarea>
+
+          <h3 style="margin-bottom: 10px;">Select any 3 Topics</h3>
+          <input type="checkbox" id="topic1" name="topic1" value="Career Advice">
+          <label for="vehicle1"><span>Career Advice</span></label><br>
+          <input type="checkbox" id="topic2" name="topic2" value="Skill Development">
+          <label for="vehicle2"><span>Skill Development</span></label><br>
+          <input type="checkbox" id="topic3" name="topic3" value="Tech Industry">
+          <label for="vehicle3"><span>Tech Industry</span></label>
+
+          <button class="full-width" type="submit">Post</button>
+      </form>
+  </div>
+
+  <% posts.forEach(post=> { %>
+  <div class="comcard">
+      <div class="c1">
+          <h3><%= post.user_name %></h3>
+          <p class="p1"><%= post.comment_date %></p>
+          <img src="https://setmycareer.com/img/chennai-grid-student-main.webp" alt="image">
+      </div>
+      <div class="c1">
+          <h2><%= post.title %></h2>
+          <p style="margin-right: 8%;"><%= post.msg %></p>
+      </div>
+      <div class="c1">
+          <ul>
+              <li><%= post.topic1 %></li>
+              <li><%= post.topic2 %></li>
+              <li><%= post.topic3 %></li>
+          </ul>
+      </div>
+  </div>
+  <% }); %>
 
   <footer>
     <div class="foo">
