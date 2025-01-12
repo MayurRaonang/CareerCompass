@@ -49,6 +49,8 @@ app.use(saveRedirectUrl);
 // app.use(saveRedirectUrl);
 app.use(passport.initialize());
 app.use(passport.session());
+
+let id;
 var name;
 var password;
 var flag = false;
@@ -92,7 +94,17 @@ app.get("/assesment",(req,res) => {
 
 app.get("/explore",async(req,res)=>{
   const car = await db.query("select * from career")
-  console.log(car.rows);
+  const test = await db.query("select * from assessment where uid = $1",[id]);
+  console.log(test.rows[0]);
+  const obj = test.rows[0];
+
+
+  // Sort the object by values
+const sortedArray = Object.entries(obj)
+.sort(([, value1], [, value2]) => value1 - value2); // Sort by values
+
+console.log(sortedArray);
+  // console.log(car.rows);
   res.render("explore.ejs",{
     careers : car.rows,
     percent : "95"
@@ -155,15 +167,19 @@ app.post("/new", async (req,res) => {
 
 
 app.post('/submit-career', async (req, res) => {
-  const suitedCareerIndex = req.body.suitedCareerIndex; // Extract suitedCareerIndex
-  const email = req.user.email;
-  console.log(suitedCareerIndex);
-  console.log(email);
-  console.log(req.user.email);
+  const arr = req.body.careerScores;
+  id = req.user.id;
+  console.log(id)
+  console.log(arr)
   try {
       // Save the suitedCareerIndex to the database
-      const query = `UPDATE userinfo SET assesment = $1 WHERE email = $2`;
-      await db.query(query, [suitedCareerIndex,email]);
+      const resultid = await db.query("select uid from assessment where uid = $1",[id]);
+      if(resultid.rows.length > 0){
+        await db.query("delete from assessment where uid = $1",[id]);
+      }
+      const query = `INSERT INTO assessment (career1, career2, career3, career4, career5, career6, career7, uid) 
+               VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+await db.query(query, [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], id]);
 
       res.json({ success: true, message: 'Career index saved successfully!' });
   } catch (err) {
@@ -238,6 +254,7 @@ passport.use(
         username,
       ]);
       name = result.rows[0].name;
+      id = result.rows[0].id;
       //console.log(`name = ${name}`);
       // loginuser = result.rows[0].email;
       if (result.rows.length > 0) {

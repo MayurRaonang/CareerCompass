@@ -90,7 +90,7 @@ function findcareer() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ suitedCareerIndex }) // Send only the index
+        body: JSON.stringify({ careerScores }) // Send only the index
     })
     .then(response => response.json())
     .then(data => {
@@ -101,18 +101,5 @@ function findcareer() {
         console.error('Error:', error);
     });
 
-    return suitedCareerIndex;
+    return careerScores;
 }
-
-
-// function addtodatabase(key){
-//     const db = new pg.Client({
-//         user: "postgres",
-//         host: "localhost",
-//         database: "world",
-//         password: "Mayur@2005",
-//         port: 5432,
-//       });
-//       db.connect();
-//     db.query(`insert into visited_country (country_code) values ($1)`,[key]);  
-// }
