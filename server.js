@@ -20,7 +20,7 @@ env.config();
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: "process.env.SESSION_SECRET",
     resave: false,
     saveUninitialized: true,
     
@@ -34,7 +34,7 @@ let redirectUrl;
 const saveRedirectUrl = (req, res, next) => {
   if(req.originalUrl != "/login" && req.originalUrl != "/register")
     redirectUrl = req.originalUrl; // Save the URL
-    console.log('Redirect URL:', redirectUrl); // Debugging
+    //console.log('Redirect URL:', redirectUrl); // Debugging
   
   next();
 };
@@ -57,11 +57,11 @@ let user;
 let posts = [];
 
 const db = new pg.Client({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
+  user: "postgres",
+  host: "localhost",
+  database: "CareerCompass",
+  password: "Sumit@06",
+  port: 5432,
 });
 db.connect();
 
@@ -122,27 +122,37 @@ app.get("/profile",(req,res)=>{
 
 app.get("/comunity",async (req,res) => {
   const result = await db.query("Select * from comments");
-  console.log(result.rows);
   posts = result.rows;
-  console.log(name);
   res.render("community.ejs",{
-    posts : posts,
-    name: name
+    posts : posts
   })
 })
 
-app.get("/new",(req,res) => {
-  if (req.isAuthenticated()) {
-    console.log('i am logged in for posting comments');
-    res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
-  } else {
-    res.redirect("/login");
-  }
-   
+app.post("/new", async (req,res) => {
+  const title = req.body.title;
+  const msg = req.body.content;
+  const topic1 = req.body.topic1;
+  const topic2 = req.body.topic2;
+  const topic3 = req.body.topic3;
+  const user_name = name;
+
+  const date = new Date();
+  var curr_date = date.getDate();
+  var curr_month = date.getMonth();
+  var curr_year = date.getFullYear();
+
+  curr_month = curr_month+1;
+
+  curr_date = curr_date.toString();
+  curr_month = curr_month.toString();
+  curr_year = curr_year.toString();
+
+  const final_date = curr_date + "/" + curr_month + "/" + curr_year;
+
+  await db.query("Insert Into comments(title,msg,user_name,comment_date,topic1,topic2,topic3) Values ($1,$2,$3,$4,$5,$6,$7) returning *",[title,msg,user_name,final_date,topic1,topic2,topic3]);
+  res.redirect("/comunity");
 })
-// app.get("/comunity",(req,res)=>{
-//   res.render("comment.ejs", { heading: "New Post", submit: "Create Post" });
-// });
+
 
 app.post('/submit-career', async (req, res) => {
   const suitedCareerIndex = req.body.suitedCareerIndex; // Extract suitedCareerIndex
@@ -161,19 +171,6 @@ app.post('/submit-career', async (req, res) => {
       res.status(500).json({ success: false, message: 'Failed to save career index.' });
   }
 });
-
-app.post("/new", async (req,res) => {
-  const title = req.body.title;
-  const content = req.body.content;
-  console.log(name);
-  await db.query("insert into comments(title,msg,user_name) values($1,$2,$3)",[title,content,name]);
-  // res.render("community.ejs",{
-  //   posts : posts,
-  //   name: name
-  // })
-  res.redirect("/comunity");
-})
-
 
 app.post(
   "/login",
@@ -241,6 +238,7 @@ passport.use(
         username,
       ]);
       name = result.rows[0].name;
+      //console.log(`name = ${name}`);
       // loginuser = result.rows[0].email;
       if (result.rows.length > 0) {
         user = result.rows[0];
