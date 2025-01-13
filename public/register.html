@@ -15,7 +15,7 @@
       </svg>
       Career Compass
     </div>
-    <form action="/register" method="POST">
+    <form action="/register" method="POST" enctype="multipart/form-data">
       <div class="form_item">
         <input type="text" placeholder="Username" id="username" name="username" required>
       </div>
@@ -24,6 +24,9 @@
       </div>
       <div class="form_item">
         <input type="email" placeholder="E-mail address" id="email" name="email" required>
+      </div>
+      <div class="form-item">
+        <input type="file" name="profileImage">
       </div>      
       <button type="submit">Register</button>
       <p class="sign-in-text">Already have an account? <a href="/login.html">Login</a></p>

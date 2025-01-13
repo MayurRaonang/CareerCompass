@@ -42,7 +42,7 @@
     <div class="card">
         <div class="top"> 
         <img class="circle-img" src="https://pbs.twimg.com/profile_images/625247595825246208/X3XLea04_400x400.jpg" alt="">
-        <h2 class="name"><%= name %></h1>    
+        <h2 class="name"></h1>    
         </div>
         <div class="bottom">
             <p class="info">svg +1234567890</p>
@@ -299,6 +299,18 @@
             color: #666;
         }
 
+        .image{
+                display: none;
+            }
+        .img-label{
+                border: 2px solid black;
+                padding: 4px 4px;
+                background-color: aqua;
+        }
+        .img-label:hover{
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -358,7 +370,7 @@
     </nav>
     <div class="header">
         <div class="profile-section">
-            <img src="https://via.placeholder.com/120" alt="Profile picture" class="profile-image">
+            <img src="<%= profilepic %>" alt="Profile picture" class="profile-image" id="pro">
             <div class="profile-info">
                 <h1>Career Profile</h1>
                 <p>ID: CareerGuidance123</p>
