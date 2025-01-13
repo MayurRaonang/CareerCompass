@@ -55,7 +55,7 @@
           <input type="text" name="title" placeholder="Title" id="title-box" required>
           <textarea name="content" placeholder="Content" required rows="10"></textarea>
 
-          <h3 style="margin-bottom: 10px;">Select any 3 Topics</h3>
+          <h3 style="margin-bottom: 10px;">Select Related Topics</h3>
           <input type="checkbox" id="topic1" name="topic1" value="Career Advice">
           <label for="vehicle1"><span>Career Advice</span></label><br>
           <input type="checkbox" id="topic2" name="topic2" value="Skill Development">
@@ -80,9 +80,15 @@
       </div>
       <div class="c1">
           <ul>
+            <% if(post.topic1)  { %>
               <li><%= post.topic1 %></li>
-              <li><%= post.topic2 %></li>
-              <li><%= post.topic3 %></li>
+            <% } %>
+            <% if(post.topic2)  { %>
+                <li><%= post.topic2 %></li>
+            <% } %>
+            <% if(post.topic3)  { %>
+                <li><%= post.topic3 %></li>
+            <% } %>
           </ul>
       </div>
   </div>

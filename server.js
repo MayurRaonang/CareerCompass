@@ -9,7 +9,7 @@ import env from "dotenv";
 import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-
+import multer from "multer";
 // import findcareer from './public/AssesScript.js';
 // findcareer();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -27,6 +27,16 @@ app.use(
   })
 );
 
+const storage = multer.diskStorage({
+  destination: function (req,file,cb){
+    return cb(null,"./public/uploads");
+  },
+  filename: function (req,file,cb) {
+    return cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -50,11 +60,14 @@ app.use(saveRedirectUrl);
 app.use(passport.initialize());
 app.use(passport.session());
 var name;
+let id;
 var password;
 var flag = false;
 let user;
 
 let posts = [];
+let career = [];
+let percentage =[];
 
 const db = new pg.Client({
   user: process.env.PG_USER,
@@ -64,14 +77,6 @@ const db = new pg.Client({
   port: process.env.PG_PORT,
 });
 db.connect();
-
-let career = [{name:"Software Developer", 
-              desc:"Design and develop software applications",
-              salary : "$70,000-$80,000",
-              growth : "Medium",
-              req1 : "Bachelor in CS",
-              req2 : "Programming skills",
-             req3 : "Problem Solving"}];
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/home.html");
@@ -83,7 +88,7 @@ app.get("/login",(req,res)=>{
 
 app.get("/assesment",(req,res) => {
   if (req.isAuthenticated()) {
-    console.log('i am logged in')
+    //console.log('i am logged in')
     res.sendFile(path.join(__dirname, 'public', 'assesment.html'));
   } else {
     res.redirect("/login");
@@ -91,12 +96,37 @@ app.get("/assesment",(req,res) => {
 });
 
 app.get("/explore",async(req,res)=>{
-  const car = await db.query("select * from career")
-  console.log(car.rows);
+  const user_career = await db.query("select * from userinfo where uid = $1",[id])
+  //console.log(user_career.rows);
+  let career1_index = user_career.rows[0].career1_index;
+  career1_index++;
+  let career1_percent = user_career.rows[0].career1_percent;
+  const car1 = await db.query("select * from career where career_id = $1",[career1_index]);
+
+  let career2_index = user_career.rows[0].career2_index;
+  career2_index++;
+  let career2_percent = user_career.rows[0].career2_percent;
+  const car2 = await db.query("select * from career where career_id = $1",[career2_index]);
+
+  let career3_index = user_career.rows[0].career3_index;
+  career3_index++;
+  let career3_percent = user_career.rows[0].career3_percent;
+  const car3 = await db.query("select * from career where career_id = $1",[career3_index]);
+
+  career.push(car1.rows[0]);
+  career.push(car2.rows[0]);
+  career.push(car3.rows[0]);
+
+  percentage.push(career1_percent);
+  percentage.push(career2_percent);
+  percentage.push(career3_percent);
+
   res.render("explore.ejs",{
-    careers : car.rows,
-    percent : "95"
+    career : career,
+    percent : percentage
   });
+  career.length = 0;
+  percentage.length = 0;
 });
 
 app.get("/resource",(req,res)=>{
@@ -105,15 +135,17 @@ app.get("/resource",(req,res)=>{
 
 app.get("/profile",(req,res)=>{
   if (req.isAuthenticated()) {
-    console.log('i am logged in in profile');
-    console.log(user);
+    //console.log('i am logged in in profile');
+    console.log(user.profile);
+
     res.render("profile.ejs",{
       name:user.name,
       summary:"i am a pro python developer",
       location: user.address,
       contactno: user.phone_no,
       education: user.education,
-      age: user.age
+      age: user.age,
+      profilepic: user.profile
     });
   } else {
     res.redirect("/login");
@@ -153,23 +185,32 @@ app.post("/new", async (req,res) => {
   res.redirect("/comunity");
 })
 
-
 app.post('/submit-career', async (req, res) => {
-  const suitedCareerIndex = req.body.suitedCareerIndex; // Extract suitedCareerIndex
-  const email = req.user.email;
-  console.log(suitedCareerIndex);
-  console.log(email);
-  console.log(req.user.email);
-  try {
-      // Save the suitedCareerIndex to the database
-      const query = `UPDATE userinfo SET assesment = $1 WHERE email = $2`;
-      await db.query(query, [suitedCareerIndex,email]);
+  const arr = req.body.careerScores; // Extract suitedCareerIndex
+  console.log(arr);
+  //console.log(email);
+  //console.log(req.user.email);
+  const indexedArray = arr.map((value, index) => ({ value, index }));
 
-      res.json({ success: true, message: 'Career index saved successfully!' });
-  } catch (err) {
-      console.error('Database error:', err);
-      res.status(500).json({ success: false, message: 'Failed to save career index.' });
-  }
+  // Sort the array in descending order based on value
+  indexedArray.sort((a, b) => b.value - a.value);
+
+  // Get the top 3 elements
+  const maxThree = indexedArray.slice(0, 3);
+
+  console.log(maxThree);
+  const career1_index = maxThree[0].index;
+  const career2_index = maxThree[1].index;
+  const career3_index = maxThree[2].index;
+  var career1_percent = maxThree[0].value;
+  var career2_percent = maxThree[1].value;
+  var career3_percent = maxThree[2].value;
+
+  career1_percent = Math.floor((career1_percent/7)*100);
+  career2_percent = Math.floor((career2_percent/7)*100);
+  career3_percent = Math.floor((career3_percent/7)*100);
+
+  await db.query("Update userinfo set career1_index = $1,career1_percent = $2,career2_index = $3,career2_percent = $4,career3_index = $5,career3_percent = $6",[career1_index,career1_percent,career2_index,career2_percent,career3_index,career3_percent]);
 });
 
 app.post(
@@ -184,12 +225,14 @@ app.post(
   }
 );
 
-app.post("/register", async (req, res) => {
+app.post("/register",upload.single("profileImage"), async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const naam = req.body.username;
-  
-  console.log(email);
+  const str = req.file.path;
+  const pro = str.replace("public\\", "");
+
+  console.log(pro);
   try {
     const checkResult = await db.query("SELECT * FROM userinfo WHERE email = $1", [
       email,
@@ -199,9 +242,10 @@ app.post("/register", async (req, res) => {
       res.redirect("/login");
     } else {
       const result = await db.query(
-              "Insert Into userinfo(email,password,name) Values ($1,$2,$3) returning *",[email,password,naam]
+              "Insert Into userinfo(email,password,name,profile) Values ($1,$2,$3,$4) returning *",[email,password,naam,pro]
             );
-            name = result.rows[0].username;
+            name = result.rows[0].name;
+            id = result.rows[0].uid;
             // loginuser = result.rows[0].email;
             user = result.rows[0];
             req.login(user, (err) => {
@@ -238,6 +282,7 @@ passport.use(
         username,
       ]);
       name = result.rows[0].name;
+      id = result.rows[0].uid;
       //console.log(`name = ${name}`);
       // loginuser = result.rows[0].email;
       if (result.rows.length > 0) {

@@ -90,7 +90,7 @@ function findcareer() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ suitedCareerIndex }) // Send only the index
+        body: JSON.stringify({ careerScores }) // Send only the index
     })
     .then(response => response.json())
     .then(data => {

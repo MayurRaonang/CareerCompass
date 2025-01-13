@@ -45,13 +45,13 @@
         <p>Based on your assessment results, here are some carrer paths that match your profile</p>
     </div>
 
-    <% careers.forEach(career=> { %>
+    <% for(let i = 0;i < 3;i++) { %>
     <div class="comcard">
         <div class="c c1">
-            <h3><%= career.career_name %></h3>
-            <p><%= career.career_description %></p>
+            <h3><%= career[i].career_name %></h3>
+            <p><%= career[i].career_description %></p>
             <div class="match">
-                <p><%= percent %>% Match</p>
+                <p><%= percent[i] %>% Match</p>
             </div>
         </div>
         <div class="c c2">
@@ -59,13 +59,13 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
                     <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
                   </svg>
-                <p><%= career.salary %></p>
+                <p><%= career[i].salary %></p>
             </div>
             <div class="s">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
                   </svg>
-                <p><%= career.growth %> Growth</p>
+                <p><%= career[i].growth %> Growth</p>
             </div>
             <div class="s">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
@@ -83,16 +83,16 @@
         <div class="c c3">
             <h5>Key Requirements</h5>
             <ul>
-                <li><%= career.requirement1 %></li>
-                <li><%= career.requirement2 %></li>
-                <li><%= career.requirement3 %></li>
+                <li><%= career[i].requirement1 %></li>
+                <li><%= career[i].requirement2 %></li>
+                <li><%= career[i].requirement3 %></li>
             </ul>
         </div>
         <div class="c4">
             <button>Learn More</button>
         </div>
     </div>
-    <% }); %>
+    <% }; %>
 
     <footer>
         <div class="foo">
