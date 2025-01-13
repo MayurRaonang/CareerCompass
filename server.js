@@ -59,8 +59,9 @@ app.use(saveRedirectUrl);
 // app.use(saveRedirectUrl);
 app.use(passport.initialize());
 app.use(passport.session());
-var name;
+
 let id;
+var name;
 var password;
 var flag = false;
 let user;
