@@ -134,19 +134,24 @@ app.get("/resource",(req,res)=>{
   res.sendFile(__dirname + "/public/resource.html");
 })
 
-app.get("/profile",(req,res)=>{
+app.get("/profile",async(req,res)=>{
   if (req.isAuthenticated()) {
-    //console.log('i am logged in in profile');
-    console.log(user.profile);
-
+    console.log('i am logged in in profile');
+    const result = await db.query("SELECT * FROM userinfo WHERE uid = $1 ", [
+      user.uid,
+    ]);
+    user = result.rows[0];
+    console.log(user);
     res.render("profile.ejs",{
+      id:user.uid,
       name:user.name,
-      summary:"i am a pro python developer",
+      summary:user.summary,
       location: user.address,
       contactno: user.phone_no,
       education: user.education,
       age: user.age,
-      profilepic: user.profile
+      profilepic: user.profile,
+      linkedin: user.linkedin,
     });
   } else {
     res.redirect("/login");
@@ -159,6 +164,32 @@ app.get("/comunity",async (req,res) => {
   res.render("community.ejs",{
     posts : posts
   })
+})
+
+app.get("/logout", (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
+app.post("/profilepic",upload.single("profileImage"),async(req,res) => {
+  const str = req.file.path;
+  const pro = str.replace("public\\", "");
+  console.log(pro);
+  await db.query(`UPDATE userinfo SET profile = ($1) WHERE uid = $2`,[pro,user.uid])
+  res.redirect("/profile");
+})
+
+app.post("/edit",async(req,res) =>{
+  const item = req.body.updatedItemTitle;
+  const id = req.body.updatedItemId;
+  console.log(req.body)
+  console.log(user.uid)
+  await db.query(`UPDATE userinfo SET ${id} = ($1) WHERE uid = $2`,[item,user.uid])
+  res.redirect("/profile")
 })
 
 app.post("/new", async (req,res) => {
@@ -185,7 +216,7 @@ app.post("/new", async (req,res) => {
   await db.query("Insert Into comments(title,msg,user_name,comment_date,topic1,topic2,topic3) Values ($1,$2,$3,$4,$5,$6,$7) returning *",[title,msg,user_name,final_date,topic1,topic2,topic3]);
   res.redirect("/comunity");
 })
-
+let flag = false;
 app.post('/submit-career', async (req, res) => {
   const arr = req.body.careerScores; // Extract suitedCareerIndex
   console.log(arr);
@@ -212,6 +243,7 @@ app.post('/submit-career', async (req, res) => {
   career3_percent = Math.floor((career3_percent/7)*100);
 
   await db.query("Update userinfo set career1_index = $1,career1_percent = $2,career2_index = $3,career2_percent = $4,career3_index = $5,career3_percent = $6",[career1_index,career1_percent,career2_index,career2_percent,career3_index,career3_percent]);
+  flag = true;
 });
 
 app.post(
@@ -230,8 +262,14 @@ app.post("/register",upload.single("profileImage"), async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const naam = req.body.username;
-  const str = req.file.path;
-  const pro = str.replace("public\\", "");
+  let pro = null;
+  try{
+    const str = req.file.path;
+    pro = str.replace("public\\", "");
+  }
+  catch(err){
+    console.log(err)
+  }
 
   console.log(pro);
   try {
@@ -288,6 +326,7 @@ passport.use(
       // loginuser = result.rows[0].email;
       if (result.rows.length > 0) {
         user = result.rows[0];
+        console.log(`inside login`);
         console.log(user);
         const storedHashedPassword = user.password;
         if(password === storedHashedPassword){
